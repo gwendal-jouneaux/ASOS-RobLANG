@@ -1,0 +1,45 @@
+Robot robby {
+	let void Main () {
+		setNominalSpeed(10.0)
+		var double battery = getBatteryLevel()
+		print "Start"
+		var int count = 0
+		loop 499 > count
+		{	
+			square()
+			count = count + 1
+			//print "------------------- Count : " + count
+                        //print "------------------- Battery : " + battery
+			print count
+			print battery
+			battery = getBatteryLevel()
+
+		}
+		print battery
+		//print "The END"
+	}
+
+	let void square(){
+		Forward 0.2
+		Left 90.0
+		Forward 0.2
+		Left 90.0
+		Forward 0.2
+		Left 90.0
+		Forward 0.2
+		Left 90.0
+		print "Made a square"
+    	}
+
+    let void rotation(){
+		Left 360.0
+		print "Made a Turn"
+    }
+
+    let void meter(){
+		Forward 1.0
+        print "Made a Meter"
+		Forward 0.0 - 1.0
+		print "Made a Meter"
+    }
+}

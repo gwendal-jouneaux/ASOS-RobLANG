@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/RobLANG_ASOS/src-gen" creationIcons="false" editDirectory="/RobLANG_ASOS.edit/src-gen"
+    editorDirectory="/RobLANG_ASOS.editor/src-gen" modelPluginID="RobLANG_ASOS" templateDirectory="RobLANG_ASOS/templates"
+    dynamicTemplates="true" modelName="RobLANG_ASOS" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>robLANG_ASOS.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="RobLANG_ASOS" disposableProviderFactory="true" ecorePackage="robLANG_ASOS.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="robLANG_ASOS.ecore#//BasicType">
+      <genEnumLiterals ecoreEnumLiteral="robLANG_ASOS.ecore#//BasicType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="robLANG_ASOS.ecore#//BasicType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="robLANG_ASOS.ecore#//BasicType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="robLANG_ASOS.ecore#//BasicType/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="robLANG_ASOS.ecore#//BasicType/VOID"/>
+    </genEnums>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Robot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//Robot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Robot/main"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Robot/functions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Robot/executioncontext"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Block/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//Type/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//Type/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Symbol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Symbol/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//Symbol/name"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//FunDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//FunDefinition/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//FunDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//FunDefinition/varNames"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//InlineFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//InlineFunction/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ComplexFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ComplexFunction/body"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Parameter"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//FunParam"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//FunCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//FunCall/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//FunCall/params"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Statement"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Variable/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Assignment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Assignment/assignee"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Assignment/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//PrintExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//PrintExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Loop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Loop/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Loop/body"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Condition/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Condition/ifz"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Condition/elsez"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Return">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Return/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//BreakLoop"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Expression"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayExpression"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayStatement/array"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayNew">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//ArrayNew/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayLength">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayLength/array"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayGet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayGet/array"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayGet/index"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArraySet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArraySet/index"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArraySet/value"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayAdd">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayAdd/valueOrIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayAdd/indexedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ArrayRemove">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//ArrayRemove/index"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathExpression"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathSqrt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathSqrt/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathPow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathPow/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathPow/exponant"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathSin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathSin/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathCos">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathCos/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathAbs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathAbs/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MathModulo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathModulo/lhs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//MathModulo/rhs"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Effector"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Move">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Move/distance"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MoveForward"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//MoveBackward"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Turn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Turn/angle"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//TurnLeft"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//TurnRight"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Speed"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SetNominalSpeed">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//SetNominalSpeed/speed"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//GetMaxSpeed"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Sensor"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SenseTime"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SenseBattery"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SensePosition"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SenseDistance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//SenseDistance/sensorIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SenseCompass"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//TradeOff">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//TradeOff/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//TradeOff/values"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//FunParamExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//FunParamExp/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//FunParamCapture">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//FunParamCapture/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Or"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//And"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Equality"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Inequality"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//GreaterEq"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//LessEq"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Greater"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Less"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Plus"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Minus"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Multiply"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Divide"/>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//Not/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//IntConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//IntConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//DoubleConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//DoubleConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//BoolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//BoolConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//SymbolRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//SymbolRef/variable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="robLANG_ASOS.ecore#//BinOp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//BinOp/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//BinOp/right"/>
+    </genClasses>
+    <genClasses ecoreClass="robLANG_ASOS.ecore#//ConstructWithContext">
+      <genOperations ecoreOperation="robLANG_ASOS.ecore#//ConstructWithContext/getContext"/>
+    </genClasses>
+    <nestedGenPackages prefix="Sd" disposableProviderFactory="true" ecorePackage="robLANG_ASOS.ecore#//sd">
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/Value"/>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/ValueString">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//sd/ValueString/value"/>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/ValueInt">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//sd/ValueInt/value"/>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/ValueDouble">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//sd/ValueDouble/value"/>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/ValueBool">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//sd/ValueBool/value"/>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/BreakSignal"/>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/Array">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robLANG_ASOS.ecore#//sd/Array/elements"/>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/ReturnValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference robLANG_ASOS.ecore#//sd/ReturnValue/value"/>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/ExecutionContext">
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/putSymbol">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/putSymbol/varName"/>
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/putSymbol/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/put">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/put/varName"/>
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/put/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/get">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/get/var"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/addAll">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/addAll/vars"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/pushContext">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/pushContext/vars"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/pushContext.1"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/popContext"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getBattery"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getPosition"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getDistance">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/getDistance/index"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getCompass"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getSpeed"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getNominalSpeed"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/getTime"/>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/moveRobot">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/moveRobot/dist"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/turnRobot">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/turnRobot/angle"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/setNominalSpeed">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/setNominalSpeed/speed"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/setSpeed">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/setSpeed/speed"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/println">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/println/expr"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/pushArg">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/pushArg/arg"/>
+        </genOperations>
+        <genOperations ecoreOperation="robLANG_ASOS.ecore#//sd/ExecutionContext/setParam">
+          <genParameters ecoreParameter="robLANG_ASOS.ecore#//sd/ExecutionContext/setParam/param"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/RuntimeError"/>
+      <genClasses ecoreClass="robLANG_ASOS.ecore#//sd/NilValue"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

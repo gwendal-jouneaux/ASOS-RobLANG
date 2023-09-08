@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated robLANG_ASOS -->
+      <package
+            uri="http://www.example.org/robLANG_ASOS"
+            class="robLANG_ASOS.RobLANG_ASOSPackage"
+            genModel="model/robLANG_ASOS.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated robLANG_ASOS -->
+      <package
+            uri="http://www.gwendal_jouneaux.fr/rob_lang/sd"
+            class="robLANG_ASOS.sd.SdPackage"
+            genModel="model/robLANG_ASOS.genmodel"/>
+   </extension>
+
+</plugin>

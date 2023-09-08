@@ -1,0 +1,178 @@
+model "platform=/resource/robLANG_ASOS/model/robLANG_ASOS.ecore" with robLANG_ASOS.sd
+semantics "platform=/resource/robLANG_ASOS/src/robLANG_ASOS/robLANG_ASOS.AdaptSem"
+
+
+QuarterSpeed {
+	match robLANG_ASOS.Effector()
+	
+	Specialization forward_act rule reduce_quarter_forward,
+		robLANG_ASOS.MoveForward(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		quarter = 0.25 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.moveRobot(d) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization backward_act rule reduce_quarter_backward,
+		robLANG_ASOS.MoveBackward(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		inv = -d;
+		quarter = 0.25 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.moveRobot(inv) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization left_act rule reduce_quarter_left,
+		robLANG_ASOS.TurnLeft(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		quarter = 0.25 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.turnRobot(d) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization right_act rule reduce_quarter_right,
+		robLANG_ASOS.TurnRight(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		inv = -d;
+		quarter = 0.25 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.turnRobot(inv) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+}
+
+HalfSpeed {
+	match robLANG_ASOS.Effector()
+	
+	Specialization forward_act rule reduce_half_forward,
+		robLANG_ASOS.MoveForward(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		quarter = 0.5 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.moveRobot(d) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization backward_act rule reduce_half_backward,
+		robLANG_ASOS.MoveBackward(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		inv = -d;
+		quarter = 0.5 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.moveRobot(inv) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization left_act rule reduce_half_left,
+		robLANG_ASOS.TurnLeft(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		quarter = 0.5 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.turnRobot(d) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization right_act rule reduce_half_right,
+		robLANG_ASOS.TurnRight(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		inv = -d;
+		quarter = 0.5 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.turnRobot(inv) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+}
+
+ThreeQuarterSpeed {
+	match robLANG_ASOS.Effector()
+	
+	Specialization forward_act rule reduce_threequarter_forward,
+		robLANG_ASOS.MoveForward(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		quarter = 0.75 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.moveRobot(d) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization backward_act rule reduce_threequarter_backward,
+		robLANG_ASOS.MoveBackward(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		inv = -d;
+		quarter = 0.75 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.moveRobot(inv) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization left_act rule reduce_threequarter_left,
+		robLANG_ASOS.TurnLeft(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		quarter = 0.75 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.turnRobot(d) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+		
+	Specialization right_act rule reduce_threequarter_right,
+		robLANG_ASOS.TurnRight(robLANG_ASOS.sd.ValueDouble(d)) 
+		-> 
+		robLANG_ASOS.sd.NilValue()
+	bind
+		inv = -d;
+		quarter = 0.75 * speed
+	IO
+		ctx = robLANG_ASOS.ConstructWithContext.getContext();
+		speed = robLANG_ASOS.sd.ExecutionContext.getNominalSpeed() on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(quarter) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.turnRobot(inv) on ctx;
+		robLANG_ASOS.sd.ExecutionContext.setSpeed(speed) on ctx
+}
+

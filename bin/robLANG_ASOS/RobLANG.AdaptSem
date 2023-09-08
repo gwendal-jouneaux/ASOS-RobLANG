@@ -1,0 +1,307 @@
+model "platform=/resource/robLANG_ASOS/model/robLANG_ASOS.ecore" with robLANG_ASOS.sd
+
+// CONSTANT
+rule IntConst,
+	robLANG_ASOS.IntConstant(val) -> robLANG_ASOS.sd.ValueInt(val)
+	
+rule BoolConst,
+	robLANG_ASOS.BoolConstant(val) -> robLANG_ASOS.sd.ValueBool(val)
+	
+rule StringConst,
+	robLANG_ASOS.StringConstant(val) -> robLANG_ASOS.sd.ValueString(val)
+	
+rule DoubleConst,
+	robLANG_ASOS.DoubleConstant(val) -> robLANG_ASOS.sd.ValueDouble(val)
+	
+
+// EXPRESSION
+rule BinOp_lhs,
+    robLANG_ASOS.BinOp(lhs, rhs) -> robLANG_ASOS.BinOp(newlhs, rhs)
+resolve
+	lhs -> newlhs
+	
+rule BinOp_rhs,
+    robLANG_ASOS.BinOp(robLANG_ASOS.sd.Value(), rhs) 
+    -> 
+    robLANG_ASOS.BinOp(robLANG_ASOS.sd.Value(), newrhs)
+resolve
+	rhs -> newrhs
+
+
+rule plus,
+    robLANG_ASOS.Plus(robLANG_ASOS.sd.ValueString(n1), n2) 
+    -> 
+    robLANG_ASOS.sd.ValueString(n)
+bind
+	n = n1 + n2.value
+	
+rule plus,
+    robLANG_ASOS.Plus(n1, robLANG_ASOS.sd.ValueString(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueString(n)
+bind
+	n = n1.value + n2
+	
+	
+
+rule plus,
+    robLANG_ASOS.Plus(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueInt(n)
+bind
+	n = n1 + n2
+	
+rule minus,
+    robLANG_ASOS.Minus(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueInt(n)
+bind
+	n = n1 - n2
+	
+rule mult,
+    robLANG_ASOS.Multiply(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueInt(n)
+bind
+	n = n1 * n2
+	
+rule div,
+    robLANG_ASOS.Divide(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueInt(n)
+where
+	n2 != 0
+bind
+	n = n1 / n2
+	
+rule div,
+    robLANG_ASOS.Divide(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    termination robLANG_ASOS.sd.Error()
+where
+	n2 == 0
+	
+	
+
+rule plus,
+    robLANG_ASOS.Plus(robLANG_ASOS.sd.ValueDouble(n1), robLANG_ASOS.sd.ValueDouble(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueDouble(n)
+bind
+	n = n1 + n2
+	
+rule minus,
+    robLANG_ASOS.Minus(robLANG_ASOS.sd.ValueDouble(n1), robLANG_ASOS.sd.ValueDouble(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueDouble(n)
+bind
+	n = n1 - n2
+	
+rule mult,
+    robLANG_ASOS.Multiply(robLANG_ASOS.sd.ValueDouble(n1), robLANG_ASOS.sd.ValueDouble(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueDouble(n)
+bind
+	n = n1 * n2
+	
+rule div,
+    robLANG_ASOS.Divide(robLANG_ASOS.sd.ValueDouble(n1), robLANG_ASOS.sd.ValueDouble(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueDouble(n)
+where
+	n2 != 0
+bind
+	n = n1 / n2
+	
+rule div,
+    robLANG_ASOS.Divide(robLANG_ASOS.sd.ValueDouble(n1), robLANG_ASOS.sd.ValueDouble(n2)) 
+    -> 
+    termination robLANG_ASOS.sd.Error()
+where
+	n2 == 0
+	
+
+
+
+
+rule not_expr,
+    robLANG_ASOS.Not(expr) 
+    -> 
+    robLANG_ASOS.Not(newExpr)
+resolve
+	expr -> newExpr
+
+rule not_done,
+    robLANG_ASOS.Not(robLANG_ASOS.sd.ValueBool(b)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(notB)
+bind
+	notB = ! b
+
+
+rule or,
+    robLANG_ASOS.Or(robLANG_ASOS.sd.ValueBool(n1), robLANG_ASOS.sd.ValueBool(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n1 || n2
+	
+rule and,
+    robLANG_ASOS.And(robLANG_ASOS.sd.ValueBool(n1), robLANG_ASOS.sd.ValueBool(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n1 && n2
+	
+rule equal,
+    robLANG_ASOS.Equality(robLANG_ASOS.sd.ValueBool(n1), robLANG_ASOS.sd.ValueBool(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n1 == n2
+	
+rule inequal,
+    robLANG_ASOS.Inequality(robLANG_ASOS.sd.ValueBool(n1), robLANG_ASOS.sd.ValueBool(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n1 != n2
+	
+	
+rule great_eq,
+    robLANG_ASOS.GreaterEq(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n2 <= n1
+	
+rule great,
+    robLANG_ASOS.Greater(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n2 < n1
+	
+rule less_eq,
+    robLANG_ASOS.LessEq(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n1 <= n2
+	
+rule less,
+    robLANG_ASOS.Less(robLANG_ASOS.sd.ValueInt(n1), robLANG_ASOS.sd.ValueInt(n2)) 
+    -> 
+    robLANG_ASOS.sd.ValueBool(n)
+bind
+	n = n1 <= n2
+	
+	
+	
+	
+
+rule symbol_ref,
+    robLANG_ASOS.SymbolRef(variable) 
+    -> 
+    n
+bind
+	n = self.get.variable.name
+	
+// TODO : function
+	
+rule block_eval,
+    robLANG_ASOS.Block([s | statements]) 
+    -> 
+    robLANG_ASOS.Block([newS | statements]) 
+resolve
+	s -> newS
+	
+rule block_iter,
+    robLANG_ASOS.Block([robLANG_ASOS.sd.NilValue() | statements]) 
+    -> 
+    robLANG_ASOS.Block(statements)
+	
+rule block_end,
+    robLANG_ASOS.Block([]) 
+    -> 
+    robLANG_ASOS.sd.NilValue()
+	
+	
+	
+rule break,
+	robLANG_ASOS.Break()
+	->
+	termination robLANG_ASOS.sd.Break()
+	
+//rule return_expr,
+//	robLANG_ASOS.Return(expr)
+//	->
+//	robLANG_ASOS.Return(newExpr)
+//resolve
+//	expr -> newExpr
+//	
+//rule return_end,
+//	robLANG_ASOS.Return(v)
+//	->
+//	termination robLANG_ASOS.sd.Return(v)
+	
+	
+// SENSORS
+
+rule time,
+	robLANG_ASOS.SenseTime()
+	->
+	out
+IO
+	ctx = robLANG_ASOS.ConstructWithContext.getContext();
+	out = robLANG_ASOS.sd.ExecutionContext.getTime() on ctx
+	
+rule battery,
+	robLANG_ASOS.SenseBattery()
+	->
+	out
+IO
+	ctx = robLANG_ASOS.ConstructWithContext.getContext();
+	out = robLANG_ASOS.sd.ExecutionContext.getBattery() on ctx
+	
+rule position,
+	robLANG_ASOS.SensePosition()
+	->
+	out
+IO
+	ctx = robLANG_ASOS.ConstructWithContext.getContext();
+	out = robLANG_ASOS.sd.ExecutionContext.getPosition() on ctx
+	
+rule dist,
+	robLANG_ASOS.SenseDistance(n)
+	->
+	out
+IO
+	ctx = robLANG_ASOS.ConstructWithContext.getContext();
+	out = robLANG_ASOS.sd.ExecutionContext.getDistance() on ctx
+	
+rule compass,
+	robLANG_ASOS.SenseCompass()
+	->
+	out
+IO
+	ctx = robLANG_ASOS.ConstructWithContext.getContext();
+	out = robLANG_ASOS.sd.ExecutionContext.getCompass() on ctx
+	
+	
+// Statement
+
+//rule var_def,
+//	robLANG_ASOS.Variable()
+//	->
+//	out
+//bind
+//	out = self.context.getCompass
+	
+	
+	
+	
+	
+	
+	
+	
